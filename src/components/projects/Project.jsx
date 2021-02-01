@@ -1,0 +1,51 @@
+import React, { useEffect, useState } from 'react'
+import {getProjectById, getStudyProjectById} from "../../services/projectService";
+import ImageDisplay from '../ImageDisplay';
+import ImageList from '../ImageList';
+import Loader from '../Loader';
+import TextContainer from '../TextContainer';
+import RepoList from './RepoList';
+
+export default function Project({match, location}) {
+    const {id} = match.params;
+    const [project, setProject] = useState();
+    const [loading, setLoading] = useState(false);
+    const [displayOpen, setDisplayOpen] = useState(false);
+    const [displayUrl, setDisplayUrl] = useState();
+    
+    const getProject = async () => {
+        setLoading(true);
+        const {data} = location.state.isStudy === false ? await getProjectById(id) : await getStudyProjectById(id);
+        setLoading(false);
+
+        setProject(data);
+        setDisplayUrl(data.images[0]);
+    }
+
+    useEffect(() => {
+        getProject();
+    }, [])
+
+    const handleOpenImage = url => {
+        setDisplayUrl(url);
+        setDisplayOpen(true);
+    }
+    const handleCloseImage = () => {
+        setDisplayUrl(null);
+        setDisplayOpen(false);
+    }
+
+    if (loading) return <Loader/>
+    if (!project) return null;
+
+    const {title, about, repos, images} = project;
+    return (
+        <div className="project_container">
+            <h1>{title}</h1>
+            {about.map((p,i) => <TextContainer key={i} text={p}/>)}
+            <ImageList images={images} onClick={handleOpenImage}/>
+            <ImageDisplay imageUrl={displayUrl} visible={displayOpen} onClose={handleCloseImage}/>
+            <RepoList repos={repos}/>
+        </div>
+    )
+}
