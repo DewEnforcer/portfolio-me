@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import TextContainer from './TextContainer'
 import {getAbout} from "../services/aboutService";
 import Loader from './Loader';
+import RepoList from "./projects/RepoList";
 
 export default function About() {
     const [about, setAbout] = useState();
@@ -23,6 +24,7 @@ export default function About() {
             <div className="wrapper">
                 <TextContainer title={about.title} hasBg={false}/>
                 {about.text.map((p, i) => <TextContainer text={p} key={i} hasBg={false}/>)}
+                <RepoList repos={about.links}/>
             </div>
         </div>
     )
