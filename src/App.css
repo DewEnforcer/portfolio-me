@@ -51,6 +51,7 @@
 }
 .grid_subtitle {
   grid-area: subtitle;
+  padding: 0 1rem;
 }
 .project_container {
   width: 100%;

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import TextContainer from './TextContainer'
 import {getHomeInfo} from "../services/homeService";
+import Loader from './Loader';
 
 export default function Home() {
-    const [homeData, setHomeData] = useState("");
+    const [homeData, setHomeData] = useState();
 
     const getHomeData = async () => {
         const {data} = await getHomeInfo();
@@ -14,6 +15,8 @@ export default function Home() {
     useEffect(() => {
         getHomeData()
     }, []) 
+
+    if (!homeData) return <Loader/>
 
     return (
         <div className="home_container">

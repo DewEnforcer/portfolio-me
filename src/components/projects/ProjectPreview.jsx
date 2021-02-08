@@ -2,9 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 export default function ProjectPreview({project}) {
-    const {id, images, title, about, isStudy} = project;
-
-    const thumbnail = images[0] ? images[0] : null;
+    const {id, thumbnail, title, about, isStudy} = project;
 
     return (
         <div className="project_preview_container bg-secondary text-white">
