@@ -3,8 +3,11 @@ import {getProjectById, getStudyProjectById} from "../../services/projectService
 import ImageDisplay from '../ImageDisplay';
 import ImageList from '../ImageList';
 import Loader from '../Loader';
+import SidebarList from '../SidebarList';
 import TextContainer from '../TextContainer';
 import RepoList from './RepoList';
+
+const techs = ["HTML", "CSS", "JS", "React", "React-native", "Node.js", "C#", "PHP"];
 
 export default function Project({match, location}) {
     const {id} = match.params;
@@ -41,11 +44,16 @@ export default function Project({match, location}) {
     const {title, about, repos, images} = project;
     return (
         <div className="project_container">
-            <h1>{title}</h1>
-            {about.map((p,i) => <TextContainer key={i} text={p}/>)}
+            <div className="project_about_text">
+                <RepoList title="Repos" repos={repos}/>
+                <div className="project_text_wrapper">
+                    <h1>{title}</h1>
+                    {about.map((p,i) => <TextContainer key={i} text={p}/>)}
+                </div>
+                <SidebarList title="Použité technologie" items={techs}/>
+            </div>
             <ImageList images={images} onClick={handleOpenImage}/>
             <ImageDisplay imageUrl={displayUrl} visible={displayOpen} onClose={handleCloseImage}/>
-            <RepoList repos={repos}/>
         </div>
     )
 }

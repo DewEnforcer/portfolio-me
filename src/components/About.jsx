@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import TextContainer from './TextContainer'
 import {getAbout} from "../services/aboutService";
 import Loader from './Loader';
+import SidebarList from './SidebarList';
 
 const skills = ["HTML", "CSS", "JS", "React", "React-native", "Node.js", "C#", "PHP"];
 
@@ -26,10 +27,7 @@ export default function About() {
                 <h1>{about.title}</h1>
                 {about.text.map((p, i) => <TextContainer cls="about_text_container" text={p} key={i} hasBg={false}/>)}
             </div>
-            <div className="skills_container">
-                <h2>Pracuji s</h2>
-                {skills.map(s => <span>{s}</span>)}
-            </div>
+            <SidebarList title="Pracuji s" cls="skills_container" items={skills}/>
         </div>
     )
 }

@@ -12,6 +12,7 @@
   justify-content: stretch;
   background: rgb(50,64,69);
   background-image: linear-gradient(to bottom right, rgba(10,10,10,1), rgba(50,50,50,1), rgba(10,10,10,1));
+  position: relative;
 }
 a {
   text-decoration: none;
@@ -26,9 +27,24 @@ a {
   transition: 0.25s ease-in-out;
   margin: .4rem 0;
 }
-
 .btn_link:hover {
   background-color: rgb(75,75,75);
+}
+.sidebar_list {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  color: white;
+}
+.sidebar_list h2 {
+  border: none;
+  border-bottom: 2px solid grey;
+}
+.sidebar_list span, .sidebar_list a {
+  font-size: 18px;
+  color: rgb(170,170,170);
+  margin: 0.5rem 0;
 }
 
 .header {
@@ -94,7 +110,7 @@ a {
   width: 80%;
   box-sizing: border-box;
   padding: .5rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 .text_container p {
   text-align: left;
@@ -143,6 +159,13 @@ a {
 }
 .project_container {
   width: 100%;
+  margin-top: 1vh;
+}
+.project_container h1, .project_container h2 {
+  color: #fff;
+}
+.project_container p {
+  color: rgb(200,200,200);
 }
 
 .about_container h1, .about_container h2 {
@@ -199,9 +222,6 @@ a {
   overflow-y: auto;
   max-height: 65vh;
 }
-.list_container {
-  width: 100%;
-}
 .listed_img {
   width: 25%;
   margin: 0 0.5rem;
@@ -214,7 +234,7 @@ a {
   height: 80vh;
   position: absolute;
   z-index: 1;
-  background-color: rgba(20,20,20,0.9);
+  background-color: rgb(20,20,20);
   border-radius: 2rem;
   display: flex;
   justify-content: center;
@@ -235,4 +255,33 @@ a {
   display: flex;
   flex-flow: column nowrap;
   text-align: center;
+}
+/* image fullscreen display */
+.opacity_box {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.7);
+  top: 0;
+  left: 0;
+}
+
+/* project section */
+.project_about_text {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  align-items: center;
+  width: 100%;
+}
+.project_text_wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.repo_list {
+  align-self: flex-start;
 }
