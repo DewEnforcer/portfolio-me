@@ -7,7 +7,6 @@ import Home from './components/Home';
 import Project from './components/projects/Project';
 
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   return (

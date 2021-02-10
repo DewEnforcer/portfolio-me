@@ -10,7 +10,7 @@ const navItems = [
 
 export default function Header() {
     return (
-        <div>
+        <div className="header">
             <Navigation navItems={navItems}/>
         </div>
     )

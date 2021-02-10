@@ -22,7 +22,7 @@ export default function Projects({location}) {
 
     return (
         <div className="projects_container">
-            <TextContainer title={projects.title} text={projects.about}/>
+            <TextContainer cls="project_about_box" title={projects.title} text={projects.about}/>
             <ProjectPreviewList projects={projects.list}/>
         </div>
     )
