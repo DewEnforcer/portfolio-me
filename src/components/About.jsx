@@ -4,8 +4,6 @@ import {getAbout} from "../services/aboutService";
 import Loader from './Loader';
 import SidebarList from './SidebarList';
 
-const skills = ["HTML", "CSS", "JS", "React", "React-native", "Node.js", "C#", "PHP"];
-
 export default function About() {
     const [about, setAbout] = useState();
 
@@ -27,7 +25,7 @@ export default function About() {
                 <h1>{about.title}</h1>
                 {about.text.map((p, i) => <TextContainer cls="about_text_container" text={p} key={i} hasBg={false}/>)}
             </div>
-            <SidebarList title="Pracuji s" cls="skills_container" items={skills}/>
+            <SidebarList title="Pracuji s" cls="skills_container" items={about.skills}/>
         </div>
     )
 }

@@ -7,8 +7,6 @@ import SidebarList from '../SidebarList';
 import TextContainer from '../TextContainer';
 import RepoList from './RepoList';
 
-const techs = ["HTML", "CSS", "JS", "React", "React-native", "Node.js", "C#", "PHP"];
-
 export default function Project({match, location}) {
     const {id} = match.params;
     const [project, setProject] = useState();
@@ -41,7 +39,7 @@ export default function Project({match, location}) {
     if (loading) return <Loader/>
     if (!project) return null;
 
-    const {title, about, repos, images} = project;
+    const {title, about, tech, repos, images} = project;
     return (
         <div className="project_container">
             <div className="project_about_text">
@@ -50,7 +48,7 @@ export default function Project({match, location}) {
                     <h1>{title}</h1>
                     {about.map((p,i) => <TextContainer key={i} text={p}/>)}
                 </div>
-                <SidebarList title="Použité technologie" items={techs}/>
+                {tech && <SidebarList title="Použité technologie" items={tech}/>}
             </div>
             <ImageList images={images} onClick={handleOpenImage}/>
             <ImageDisplay imageUrl={displayUrl} visible={displayOpen} onClose={handleCloseImage}/>
