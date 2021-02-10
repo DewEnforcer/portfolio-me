@@ -1,8 +1,7 @@
 import React from 'react'
 
-export default function TextContainer({title, text, style, hasBg = true}) {
-    let cls = "text_container"
-    if (hasBg) cls += " bg-light";
+export default function TextContainer({title, text, style, cls="", hasBg = true}) {
+    cls += " text_container"
 
     return (
         <div style={style} className={cls}>

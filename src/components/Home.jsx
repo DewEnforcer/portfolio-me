@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import TextContainer from './TextContainer'
 import {getHomeInfo} from "../services/homeService";
 import Loader from './Loader';
+import AppLink from './AppLink';
 
 export default function Home() {
     const [homeData, setHomeData] = useState();
@@ -20,7 +20,9 @@ export default function Home() {
 
     return (
         <div className="home_container">
-            <TextContainer text={homeData} title="Vítejte!"/>
+            <h1>Ahoj, vítej na mém portfóliu!</h1>
+            <h1>Věnuji se všem věcem <span className="marked_text">React.js</span> a <span className="marked_text">Node.js</span></h1>
+            <AppLink label="Mé projekty" to="/projects"/>
         </div>
     )
 }

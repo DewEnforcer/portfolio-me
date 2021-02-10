@@ -7,7 +7,7 @@ import Home from './components/Home';
 import Project from './components/projects/Project';
 
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import ImageDisplay from './components/ImageDisplay';
 
 function App() {
   return (

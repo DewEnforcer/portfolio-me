@@ -7,8 +7,11 @@ export default function ProjectPreview({project}) {
     return (
         <div className="project_preview_container bg-secondary text-white">
             <img className="grid_img" src={thumbnail} alt="Thumbnail img"/>
-            <h2 className="grid_title">{title}</h2>
-            <p className="grid_subtitle">{about[0]} <Link to={{pathname: `/project/${id}`, state: {isStudy}}}>Zobrazit více...</Link></p>
+            <div className="project_text_box">
+                <h2 className="grid_title">{title}</h2>
+                <p className="grid_subtitle">{about[0]}</p>
+                <Link to={{pathname: `/project/${id}`, state: {isStudy}}}>Zobrazit více...</Link>
+            </div>
         </div>
     )
 }
