@@ -46,6 +46,24 @@ a {
   color: rgb(170,170,170);
   margin: 0.5rem 0;
 }
+.btn_goback {
+  color: grey;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  width: 60px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+  cursor: pointer;
+  transition: 0.25s ease-in-out
+}
+.btn_goback:hover {
+  color: #fff;
+  border-color: #fff;
+}
 
 .header {
   min-height: 60px;
