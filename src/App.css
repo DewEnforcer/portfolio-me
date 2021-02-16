@@ -155,7 +155,7 @@ a {
   grid-area: img;
   justify-self: center;
   align-self: center;
-  width: 100%;
+  max-width: 100%;
   border-radius: 10px;
 }
 .project_about_box {
@@ -240,11 +240,15 @@ a {
   overflow-y: auto;
   max-height: 65vh;
 }
+.list_images {
+  max-height: 50vh !important;
+}
 .listed_img {
-  width: 25%;
+  max-width: 25%;
   margin: 0 0.5rem;
   cursor: pointer;
   border-radius: 5px;
+  max-height: 100%;
 }
 
 .image_display_container {
