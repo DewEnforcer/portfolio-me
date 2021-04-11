@@ -8,7 +8,10 @@ export const getProjectById = id => http.get(`${endPoint}/${id}`);
 
 export const getStudyProjectById = id => http.get(`${endPoint}/study/${id}`);
 
+export const getAllProjectsAssets = () => http.get(`${endPoint}/all/assets`);
+
 export default {
     getProjects,
-    getProjectById
+    getProjectById,
+    getAllProjectsAssets
 }
