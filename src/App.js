@@ -12,6 +12,12 @@ import Loader from './components/Loader';
 import { getAllProjectsAssets } from './services/projectService';
 import { cacheAssets } from './services/cacheService';
 
+const navItems = [
+  {id: 1, path: "/home", label: "Domů"},
+  {id: 2, path: "/projects", label: "Projekty"},
+  {id: 4, path: "/about", label: "O mně"},
+]
+
 function App() {
   const [isCaching, setIsCaching] = useState(true);
 
@@ -27,7 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
+      <Header navItems={navItems}/>
       <div className="content">
         {isCaching ? <Loader/> : <Switch>
           <Route path="/project/:id" component={Project}/>

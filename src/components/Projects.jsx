@@ -12,6 +12,7 @@ export default function Projects({location}) {
     const getProjects = async () => {
         const {data} = await projectService.getProjects(endPoint);
         setProjects(data);
+
     }
 
     useEffect(() => {
