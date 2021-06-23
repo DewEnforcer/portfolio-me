@@ -83,6 +83,7 @@ a {
   display: flex;
   align-items: center;
   padding: 0 2vw;
+  position: relative;
 }
 .header nav ul {
   display: flex;
@@ -92,13 +93,29 @@ a {
   list-style: none;
   margin: 0 4px;
 }
-.header nav ul li a {
-}
 .nav-link {
   color: #fff
 }
 .nav-link .active {
   text-decoration: underline;
+}
+.lang_switcher_wrapper {
+  position: absolute;
+  right: 0;
+  padding: 0 2vw;
+}
+.lang_switcher {
+  margin: 0 0.2rem;
+  color: rgb(200,200,200);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.lang_switcher_active {
+  color: white;
+  margin: 0 0.2rem;
+}
+.lang_switcher:hover {
+  color: white;
 }
 
 .content {

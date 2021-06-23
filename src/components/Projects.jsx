@@ -3,11 +3,15 @@ import TextContainer from './TextContainer'
 import projectService from "../services/projectService";
 import ProjectPreviewList from './projects/ProjectPreviewList';
 import Loader from './Loader';
+import useLanguage from '../hooks/useLanguage';
 
 export default function Projects({location}) {
     const query = new URLSearchParams(location.search);
     const endPoint = query.get("isStudy") ? "/study" : "";
+    
     const [projects, setProjects] = useState();
+    const [language, setLanguage] = useLanguage("cz");
+
 
     const getProjects = async () => {
         const {data} = await projectService.getProjects(endPoint);
@@ -17,13 +21,14 @@ export default function Projects({location}) {
 
     useEffect(() => {
         getProjects();
+        console.log(language);
     }, [location]);
 
     if (!projects) return <Loader/>
 
     return (
         <div className="projects_container">
-            <TextContainer cls="project_about_box" title={projects.title} text={projects.about}/>
+            <TextContainer cls="project_about_box" title={projects.title} />
             <ProjectPreviewList projects={projects.list}/>
         </div>
     )
