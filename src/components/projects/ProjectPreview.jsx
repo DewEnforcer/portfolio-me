@@ -1,16 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default function ProjectPreview({project}) {
-    const {id, thumbnail, title, about, isStudy, lang} = project;
+import btnTexts from "../../texts/btnTexts";
+
+export default function ProjectPreview({project, lang}) {
+    const {id, thumbnail, title, about, isStudy} = project;
+
+    console.log(lang);
 
     return (
         <div className="project_preview_container bg-secondary text-white">
-            <img className="grid_img" src={thumbnail} alt="Thumbnail img"/>
+            <div className="grid_img" style={{backgroundImage: "url('"+thumbnail+"')"}}></div>
             <div className="project_text_box">
                 <h2 className="grid_title">{title}</h2>
                 <p className="grid_subtitle">{about[0]}</p>
-                <Link to={{pathname: `/project/${id}`, state: {isStudy}}}>Zobrazit více...</Link>
+                <Link to={{pathname: `/project/${id}`, state: {isStudy}}}>{btnTexts[lang]["proj_prev_show_more"]}</Link>
             </div>
         </div>
     )

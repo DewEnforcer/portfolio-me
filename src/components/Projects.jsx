@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import TextContainer from './TextContainer'
 import projectService from "../services/projectService";
 import ProjectPreviewList from './projects/ProjectPreviewList';
 import Loader from './Loader';
-import useLanguage from '../hooks/useLanguage';
+import LanguageContext from '../context/LanguageContext';
 
 export default function Projects({location}) {
     const query = new URLSearchParams(location.search);
     const endPoint = query.get("isStudy") ? "/study" : "";
     
     const [projects, setProjects] = useState();
-    const [language, setLanguage] = useLanguage("cz");
+    const {language} = useContext(LanguageContext)
 
 
     const getProjects = async () => {
@@ -21,7 +21,6 @@ export default function Projects({location}) {
 
     useEffect(() => {
         getProjects();
-        console.log(language);
     }, [location]);
 
     if (!projects) return <Loader/>

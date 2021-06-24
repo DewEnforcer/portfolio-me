@@ -11,15 +11,17 @@ import './App.css';
 import Loader from './components/Loader';
 import { getAllProjectsAssets } from './services/projectService';
 import { cacheAssets } from './services/cacheService';
+import LanguageContext from './context/LanguageContext';
 
 const navItems = [
   {id: 1, path: "/home", label: "Domů"},
   {id: 2, path: "/projects", label: "Projekty"},
-  {id: 4, path: "/about", label: "O mně"},
+  {id: 3, path: "/about", label: "O mně"},
 ]
 
 function App() {
   const [isCaching, setIsCaching] = useState(true);
+  const [language, setLanguage] = useState("cz");
 
 
   useEffect(() => {
@@ -32,19 +34,21 @@ function App() {
   })
 
   return (
-    <div className="App">
-      <Header navItems={navItems}/>
-      <div className="content">
-        {isCaching ? <Loader/> : <Switch>
-          <Route path="/project/:id" component={Project}/>
-          <Route path="/projects" component={Projects}/>
-          <Route path="/about" component={About}/>
-          <Route path="/" exact component={Home}/>
-          <Redirect from="/home" to="/"/>
-        </Switch>
-        }
+    <LanguageContext.Provider value={{language, setLanguage}}>
+      <div className="App">
+        <Header navItems={navItems}/>
+        <div className="content">
+          {isCaching ? <Loader/> : <Switch>
+            <Route path="/project/:id" component={Project}/>
+            <Route path="/projects" component={Projects}/>
+            <Route path="/about" component={About}/>
+            <Route path="/" exact component={Home}/>
+            <Redirect from="/home" to="/"/>
+          </Switch>
+          }
+        </div>
       </div>
-    </div>
+    </LanguageContext.Provider>
   );
 }
 

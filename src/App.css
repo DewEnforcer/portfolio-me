@@ -53,6 +53,9 @@ a {
   border: none;
   border-bottom: 2px solid grey;
 }
+.sidebar_list_link {
+  text-decoration: underline;
+}
 .sidebar_list span, .sidebar_list a {
   font-size: 18px;
   color: rgb(170,170,170);
@@ -165,7 +168,8 @@ a {
 }
 
 .project_preview_container {
-  width: 40%;
+  width: 90%;
+  height: 60vh;
   box-sizing: border-box;
   display: flex;
   flex-flow: column nowrap;
@@ -173,9 +177,7 @@ a {
   border: 1px solid grey;
   border-radius: 10px;
   margin: 0.5rem 0;
-}
-.project_preview_container:nth-child(even) {
-  grid-template-areas: "text img";
+  justify-self: center;
 }
 .project_preview_container a {
   color: grey;
@@ -184,9 +186,12 @@ a {
   grid-area: img;
   justify-self: center;
   align-self: center;
-  max-width: 100%;
+  width: 100%;
   border-radius: 10px;
-  max-height: 32vh;
+  height: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 .project_about_box {
   border-bottom: 1px solid #fff;
@@ -196,11 +201,15 @@ a {
   grid-area: text;
   justify-self: center;
   width: 90%;
-  height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
+  height: 50%;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+.project_text_box a {
+  grid-area: "link";
+  align-self: center;
 }
 .grid_title {
   margin: 1rem 0;
@@ -241,6 +250,9 @@ a {
 .about_text_container {
   margin: .5rem 0 !important;
 }
+.about_text_container p {
+  font-size: 24px;
+}
 .skills_container {
   width: 100%;
   display: flex;
@@ -259,8 +271,6 @@ a {
 }
 
 .list_container, .img_list_container {
-  display: flex;
-  flex-flow: row wrap;
   width: 80%;
   justify-content: space-evenly;
   padding: .3rem;
@@ -270,6 +280,15 @@ a {
   overflow-y: auto;
   max-height: 65vh;
 }
+.img_list_container {
+  display: flex;
+  flex-flow: row wrap;
+}
+.list_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .list_images {
   max-height: 50vh !important;
 }

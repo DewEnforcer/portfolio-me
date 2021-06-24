@@ -1,9 +1,11 @@
-import React from 'react'
-import useLanguage from '../../hooks/useLanguage'
+import React, { useContext } from 'react'
+import LanguageContext from '../../context/LanguageContext';
 import ProjectPreview from '../projects/ProjectPreview'
 
 export default function ProjectPreviewList({projects}) {
-    const [language] = useLanguage();
+    const {language} = useContext(LanguageContext);
+
+    console.log(language);
 
     return (
         <>

@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import useLanguage from '../hooks/useLanguage'
+import React, { useContext, useEffect } from 'react'
+import LanguageContext from '../context/LanguageContext';
 import Navigation from './Navigation'
 
 const DEF_LANGSWITCH_CLS = "lang_switcher"
 
 export default function Header({navItems = []}) {
-    const [language, setLanguage] = useLanguage();
+    const {language, setLanguage} = useContext(LanguageContext);
 
     const getActiveClass = lang => {
         if (lang === language) return DEF_LANGSWITCH_CLS + "_active";

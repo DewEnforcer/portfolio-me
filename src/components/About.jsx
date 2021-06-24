@@ -25,7 +25,10 @@ export default function About() {
                 <h1>{about.title}</h1>
                 {about.text.map((p, i) => <TextContainer cls="about_text_container" text={p} key={i} hasBg={false}/>)}
             </div>
-            <SidebarList title="Pracuji s" cls="skills_container" items={about.skills}/>
+            <div>
+                 <SidebarList title="Pracuji s" cls="skills_container" items={about.skills}/>
+                 <SidebarList title="Kontakty" cls="contacts_container" items={about.contacts}/>
+            </div>
         </div>
     )
 }
