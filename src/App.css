@@ -178,6 +178,7 @@ a {
   border-radius: 10px;
   margin: 0.5rem 0;
   justify-self: center;
+  padding: 0.3rem 0;
 }
 .project_preview_container a {
   color: grey;
