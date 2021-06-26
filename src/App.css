@@ -354,6 +354,12 @@ a {
   flex-flow: column nowrap;
   align-items: center;
 }
-.repo_list {
+.project_text_wrapper p {
+  font-size: 1.2rem;
+}
+.repo_list, .tech_list {
   align-self: flex-start;
+}
+.repo_list a {
+  text-decoration: underline;
 }

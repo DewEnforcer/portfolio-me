@@ -53,7 +53,7 @@ export default function Project({match, location, history}) {
                     <h1>{title}</h1>
                     {about.map((p,i) => <TextContainer key={i} text={p}/>)}
                 </div>
-                {tech && <SidebarList title="Použité technologie" items={tech}/>}
+                {tech && <SidebarList title="Použité technologie" cls="tech_list" items={tech}/>}
             </div>
             <ImageList images={images} onClick={handleOpenImage}/>
             <ImageDisplay imageUrl={displayUrl} visible={displayOpen} onClose={handleCloseImage}/>
