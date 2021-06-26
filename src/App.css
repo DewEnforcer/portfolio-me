@@ -22,8 +22,7 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: stretch;
-  background: rgb(50,64,69);
-  background-image: linear-gradient(to bottom right, rgba(10,10,10,1), rgba(50,50,50,1), rgba(10,10,10,1));
+  background-color: #2e3842;
   position: relative;
 }
 a {
@@ -82,7 +81,7 @@ a {
 
 .header {
   min-height: 60px;
-  background-color: #6c757d;
+  background-color: #424c55;
   display: flex;
   align-items: center;
   padding: 0 2vw;
