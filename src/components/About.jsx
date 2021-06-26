@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import TextContainer from './TextContainer'
 import {getAbout} from "../services/aboutService";
 import Loader from './Loader';
 import SidebarList from './SidebarList';
+import LanguageContext from '../context/LanguageContext';
 
 export default function About() {
     const [about, setAbout] = useState();
+    const {language} = useContext(LanguageContext);
 
     const fetchAbout = async () => {
         const {data} = await getAbout();
+        console.log(data);
         setAbout(data);
     }
 
@@ -22,12 +25,12 @@ export default function About() {
         <div className="about_container bg-light">
             <img src={about.image} alt="That's supposed to be me:)"/>
             <div className="about_text_wrapper">
-                <h1>{about.title}</h1>
-                {about.text.map((p, i) => <TextContainer cls="about_text_container" text={p} key={i} hasBg={false}/>)}
+                <h1>{about.title[language]}</h1>
+                <TextContainer cls="about_text_container" text={about.text[language]} hasBg={false}/>
             </div>
             <div>
-                 <SidebarList title="Pracuji s" cls="skills_container" items={about.skills}/>
-                 <SidebarList title="Kontakty" cls="contacts_container" items={about.contacts}/>
+                 <SidebarList title={about.skillsLabel[language]} cls="skills_container" items={about.skills}/>
+                 <SidebarList title={about.contactsLabel[language]} cls="contacts_container" items={about.contacts}/>
             </div>
         </div>
     )

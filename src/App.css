@@ -34,9 +34,10 @@ a {
   background-color: transparent;
   color: #fff;
   padding: 1rem 0;
-  font-size: 18px;
+  font-size: 20px;
   transition: 0.25s ease-in-out;
   margin: .4rem 0;
+  font-weight: 500;
 }
 .btn_link:hover {
   background-color: #384C55;
