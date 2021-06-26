@@ -1,14 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import parse from 'html-react-parser';
+
 import {getHomeInfo} from "../services/homeService";
+
 import Loader from './Loader';
 import AppLink from './AppLink';
 
+import LanguageContext from '../context/LanguageContext';
+
 export default function Home() {
+    const {language} = useContext(LanguageContext);
     const [homeData, setHomeData] = useState();
 
     const getHomeData = async () => {
         const {data} = await getHomeInfo();
-
+        console.log(data);
         setHomeData(data)
     }
 
@@ -20,9 +26,8 @@ export default function Home() {
 
     return (
         <div className="home_container">
-            <h1>Ahoj, vítej na mém portfóliu!</h1>
-            <h1>Věnuji se všem věcem <span className="marked_text">React.js</span> a <span className="marked_text">Node.js</span></h1>
-            <AppLink label="Mé projekty" to="/projects"/>
+            {homeData[language].text.map((t, i) => <h1 key={i}>{parse(t)}</h1>)}
+            <AppLink label={homeData[language].btnLabel} to="/projects"/>
         </div>
     )
 }

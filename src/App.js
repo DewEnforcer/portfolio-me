@@ -36,14 +36,14 @@ function App() {
   return (
     <LanguageContext.Provider value={{language, setLanguage}}>
       <div className="App">
-        <Header navItems={navItems}/>
+        <Header mark="Patrik Medek" navItems={navItems}/>
         <div className="content">
           {isCaching ? <Loader/> : <Switch>
             <Route path="/project/:id" component={Project}/>
             <Route path="/projects" component={Projects}/>
             <Route path="/about" component={About}/>
-            <Route path="/" exact component={Home}/>
-            <Redirect from="/home" to="/"/>
+            <Route path="/home" component={Home}/>
+            <Redirect from="/" to="/home"/>
           </Switch>
           }
         </div>

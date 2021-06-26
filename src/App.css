@@ -12,7 +12,7 @@
 }
 
 .list_container::-webkit-scrollbar-thumb {
-  background-color: grey; 
+  background-color: #3d5b69; 
 }
 
 .App {
@@ -39,7 +39,7 @@ a {
   margin: .4rem 0;
 }
 .btn_link:hover {
-  background-color: rgb(75,75,75);
+  background-color: #384C55;
 }
 .sidebar_list {
   width: 100%;
@@ -57,7 +57,7 @@ a {
 }
 .sidebar_list span, .sidebar_list a {
   font-size: 18px;
-  color: rgb(170,170,170);
+  color: rgb(202, 200, 200);
   margin: 0.5rem 0;
 }
 .btn_goback {
@@ -87,6 +87,18 @@ a {
   padding: 0 2vw;
   position: relative;
 }
+.header_logo {
+  color: white;
+  border-right: 1px solid white;
+  padding-right: 8px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+.header nav {
+  margin-left: 4px;
+}
 .header nav ul {
   display: flex;
   flex-flow: row nowrap;
@@ -96,10 +108,15 @@ a {
   margin: 0 4px;
 }
 .nav-link {
+  color: lightgrey;
+  transition: 0.2s ease-in-out;
+}
+.nav-link:hover {
   color: #fff
 }
-.nav-link .active {
+.active {
   text-decoration: underline;
+  color: #fff;
 }
 .lang_switcher_wrapper {
   position: absolute;
@@ -173,14 +190,16 @@ a {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  border: 1px solid grey;
+  border: 1px solid white;
   border-radius: 10px;
   margin: 0.5rem 0;
   justify-self: center;
   padding: 0.3rem 0;
+  background-color: #414C55;
 }
 .project_preview_container a {
-  color: grey;
+  color: whitesmoke;
+  font-size: 20px;
 }
 .grid_img {
   grid-area: img;

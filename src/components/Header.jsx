@@ -4,7 +4,7 @@ import Navigation from './Navigation'
 
 const DEF_LANGSWITCH_CLS = "lang_switcher"
 
-export default function Header({navItems = []}) {
+export default function Header({navItems = [], mark = null}) {
     const {language, setLanguage} = useContext(LanguageContext);
 
     const getActiveClass = lang => {
@@ -15,6 +15,7 @@ export default function Header({navItems = []}) {
 
     return (
         <div className="header">
+            {mark && <span className="header_logo">{mark}</span>}
             <Navigation navItems={navItems}/>
             <div className="lang_switcher_wrapper">
                 <span className={getActiveClass("cz")} onClick={() => setLanguage("cz")}>CZ</span>
