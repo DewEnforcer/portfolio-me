@@ -18,8 +18,8 @@ export default function Header({navItems = [], mark = null}) {
             {mark && <span className="header_logo">{mark}</span>}
             <Navigation navItems={navItems}/>
             <div className="lang_switcher_wrapper">
-                <span className={getActiveClass("cz")} onClick={() => setLanguage("cz")}>CZ</span>
                 <span className={getActiveClass("en")} onClick={() => setLanguage("en")}>EN</span>
+                <span className={getActiveClass("cz")} onClick={() => setLanguage("cz")}>CZ</span>
             </div>
         </div>
     )

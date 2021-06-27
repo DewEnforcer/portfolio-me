@@ -27,7 +27,7 @@ export default function Projects({location}) {
 
     return (
         <div className="projects_container">
-            <TextContainer cls="project_about_box" title={projects.title} />
+            <TextContainer cls="project_about_box" title={projects.title[language]} />
             <ProjectPreviewList projects={projects.list}/>
         </div>
     )

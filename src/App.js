@@ -14,14 +14,14 @@ import { cacheAssets } from './services/cacheService';
 import LanguageContext from './context/LanguageContext';
 
 const navItems = [
-  {id: 1, path: "/home", label: "Domů"},
-  {id: 2, path: "/projects", label: "Projekty"},
-  {id: 3, path: "/about", label: "O mně"},
+  {id: 1, path: "/home", label: {cz: "Domů", en: "Home"}},
+  {id: 2, path: "/projects", label: {cz: "Projekty", en: "Projects"}},
+  {id: 3, path: "/about", label: {cz: "O mně", en: "About me"}},
 ]
 
 function App() {
   const [isCaching, setIsCaching] = useState(true);
-  const [language, setLanguage] = useState("cz");
+  const [language, setLanguage] = useState("en");
 
 
   useEffect(() => {
