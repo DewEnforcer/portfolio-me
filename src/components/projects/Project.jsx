@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {getProjectById, getStudyProjectById} from "../../services/projectService";
 import BtnNavigateBack from "../BtnNavigateBack"
 import ImageDisplay from '../ImageDisplay';
@@ -7,13 +7,19 @@ import Loader from '../Loader';
 import SidebarList from '../SidebarList';
 import TextContainer from '../TextContainer';
 import RepoList from './RepoList';
+import defTexts from "../../texts/defaultProjTexts";
+import LanguageContext from '../../context/LanguageContext';
 
 export default function Project({match, location, history}) {
+    console.log(defTexts);
+
     const {id} = match.params;
     const [project, setProject] = useState();
     const [loading, setLoading] = useState(false);
     const [displayOpen, setDisplayOpen] = useState(false);
     const [displayUrl, setDisplayUrl] = useState();
+    const {language} = useContext(LanguageContext);
+
     
     const getProject = async () => {
         setLoading(true);
@@ -51,9 +57,9 @@ export default function Project({match, location, history}) {
                 <RepoList title="Repos" repos={repos}/>
                 <div className="project_text_wrapper">
                     <h1>{title}</h1>
-                    {about.map((p,i) => <TextContainer key={i} text={p}/>)}
+                    {about[language].map((p,i) => <TextContainer key={i} text={p}/>)}
                 </div>
-                {tech && <SidebarList title="Použité technologie" cls="tech_list" items={tech}/>}
+                {tech && <SidebarList title={defTexts[language].used_tech} cls="tech_list" items={tech}/>}
             </div>
             <ImageList images={images} onClick={handleOpenImage}/>
             <ImageDisplay imageUrl={displayUrl} visible={displayOpen} onClose={handleCloseImage}/>

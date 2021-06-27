@@ -13,7 +13,7 @@ export default function ProjectPreview({project, lang}) {
             <div className="grid_img" style={{backgroundImage: "url('"+thumbnail+"')"}}></div>
             <div className="project_text_box">
                 <h2 className="grid_title">{title}</h2>
-                <p className="grid_subtitle">{about[0]}</p>
+                <p className="grid_subtitle">{about[lang][0]}</p>
                 <Link to={{pathname: `/project/${id}`, state: {isStudy}}}>{btnTexts[lang]["proj_prev_show_more"]}</Link>
             </div>
         </div>
