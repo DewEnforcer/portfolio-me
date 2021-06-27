@@ -11,7 +11,7 @@ export default function SidebarList({title, cls = "", items}) {
             {items.map((i, k) => {
                 if (!i.label) return <span key={k}>{i}</span>;
 
-                return <a key={k} className="sidebar_list_link" target="_blank" href={i.link}>{i.label}</a>
+                return <a key={k} className="sidebar_list_link" target="_blank" rel="noreferrer" href={i.link}>{i.label}</a>
             })}
         </div>
     )

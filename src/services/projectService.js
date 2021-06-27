@@ -10,8 +10,10 @@ export const getStudyProjectById = id => http.get(`${endPoint}/study/${id}`);
 
 export const getAllProjectsAssets = () => http.get(`${endPoint}/all/assets`);
 
-export default {
+const projectService = {
     getProjects,
     getProjectById,
     getAllProjectsAssets
 }
+
+export default projectService;
