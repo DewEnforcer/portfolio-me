@@ -6,8 +6,6 @@ import btnTexts from "../../texts/btnTexts";
 export default function ProjectPreview({project, lang}) {
     const {id, thumbnail, title, about, isStudy} = project;
 
-    console.log(lang);
-
     return (
         <div className="project_preview_container bg-secondary text-white">
             <div className="grid_img" style={{backgroundImage: "url('"+thumbnail+"')"}}></div>

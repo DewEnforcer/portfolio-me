@@ -5,8 +5,6 @@ import ProjectPreview from '../projects/ProjectPreview'
 export default function ProjectPreviewList({projects}) {
     const {language} = useContext(LanguageContext);
 
-    console.log(language);
-
     return (
         <>
             <div className="list_container">

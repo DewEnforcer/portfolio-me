@@ -11,8 +11,6 @@ import defTexts from "../../texts/defaultProjTexts";
 import LanguageContext from '../../context/LanguageContext';
 
 export default function Project({match, location, history}) {
-    console.log(defTexts);
-
     const {id} = match.params;
     const [project, setProject] = useState();
     const [loading, setLoading] = useState(false);

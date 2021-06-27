@@ -14,7 +14,6 @@ export default function Home() {
 
     const getHomeData = async () => {
         const {data} = await getHomeInfo();
-        console.log(data);
         setHomeData(data)
     }
 

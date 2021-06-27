@@ -11,7 +11,6 @@ export default function About() {
 
     const fetchAbout = async () => {
         const {data} = await getAbout();
-        console.log(data);
         setAbout(data);
     }
 
