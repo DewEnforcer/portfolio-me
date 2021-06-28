@@ -14,7 +14,10 @@
 .list_container::-webkit-scrollbar-thumb {
   background-color: #3d5b69; 
 }
-
+body {
+  background-color: #2e3842;
+  overflow-x: hidden;
+}
 .App {
   width: 100vw;
   height: 100vh;
@@ -24,6 +27,7 @@
   justify-content: stretch;
   background-color: #2e3842;
   position: relative;
+  overflow-x: hidden;
 }
 a {
   text-decoration: none;
@@ -43,7 +47,6 @@ a {
   background-color: #384C55;
 }
 .sidebar_list {
-  width: 100%;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -171,6 +174,12 @@ a {
 }
 .projects_container p {
   color: rgb(200,200,200);
+}
+.grid_subtitle {
+  max-width: 100%;
+  max-height: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .text_container {
   width: 80%;
@@ -348,8 +357,8 @@ a {
 }
 /* image fullscreen display */
 .opacity_box {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: absolute;
   z-index: 999;
   display: flex;
@@ -373,11 +382,37 @@ a {
   align-items: center;
 }
 .project_text_wrapper p {
-  font-size: 1.2rem;
+  font-size: 1.2em;
 }
 .repo_list, .tech_list {
   align-self: flex-start;
 }
 .repo_list a {
   text-decoration: underline;
+}
+@media only screen and (max-width:1440px) {
+  .project_about_text {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+  .repo_list {
+    justify-self: end;
+  }
+  .tech_list {
+    justify-self: start;
+    margin-right: 3vw;
+  }
+  .btn_link {
+    width: 15vw;
+  }
+}
+@media only screen and (max-width:720px) {
+  .project_about_text {
+    margin-top: 5vh;
+  }
+  .tech_list {
+    justify-self: start;
+  }
+  .btn_link {
+    width: 30vw;
+  }
 }
