@@ -8,11 +8,12 @@
 }
 
 .list_container::-webkit-scrollbar-track {
-  background: rgb(220,220,220);  
+  background: rgba(220, 220, 220, 0.9);  
 }
 
 .list_container::-webkit-scrollbar-thumb {
-  background-color: #3d5b69; 
+  background-color: #5b899e; 
+  border-radius: 10px;
 }
 body {
   background-color: #2e3842;
