@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import btnTexts from "../../texts/btnTexts";
 
-export default function ProjectPreview({project, lang}) {
+export default function ProjectPreview({project, lang, onClick}) {
     const {id, thumbnail, title, about, isStudy} = project;
 
     return (
@@ -14,7 +14,7 @@ export default function ProjectPreview({project, lang}) {
                 <div className="grid_subtitle">
                     <p>{about[lang][0]}</p>
                 </div>
-                <Link to={{pathname: `/project/${id}`, state: {isStudy}}}>{btnTexts[lang]["proj_prev_show_more"]}</Link>
+                <Link onClick={onClick} to={{pathname: `/project/${id}`, state: {isStudy}}}>{btnTexts[lang]["proj_prev_show_more"]}</Link>
             </div>
         </div>
     )
