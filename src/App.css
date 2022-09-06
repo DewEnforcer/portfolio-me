@@ -9,6 +9,7 @@
 
 .list_container::-webkit-scrollbar-track {
   background: rgba(220, 220, 220, 0.9);  
+  border-radius: 10px;
 }
 
 .list_container::-webkit-scrollbar-thumb {
@@ -181,6 +182,7 @@ a {
   max-height: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+  height: fit-content;
 }
 .text_container {
   width: 80%;
@@ -239,6 +241,11 @@ a {
 .project_text_box a {
   grid-area: "link";
   align-self: center;
+  transition: .25s ease-in-out;
+  color: #d3d3d3;
+}
+.project_text_box a:hover {
+  color: #fff;
 }
 .grid_title {
   margin: 1rem 0;
