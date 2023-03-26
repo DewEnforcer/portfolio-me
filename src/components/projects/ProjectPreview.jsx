@@ -6,8 +6,14 @@ import btnTexts from "../../texts/btnTexts";
 export default function ProjectPreview({project, lang, onClick}) {
     const {id, thumbnail, title, about, isStudy} = project;
 
+    const handleManualRedirect = () => {
+        console.log("TODO");
+
+        onClick();
+    }
+
     return (
-        <div className="project_preview_container bg-secondary text-white">
+        <div onClick={handleManualRedirect} className="project_preview_container bg-secondary text-white">
             <div className="grid_img" style={{backgroundImage: "url('"+thumbnail+"')"}}></div>
             <div className="project_text_box">
                 <h2 className="grid_title">{title}</h2>
