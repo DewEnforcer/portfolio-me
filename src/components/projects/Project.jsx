@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import {getProjectById, getStudyProjectById} from "../../services/projectService";
 import BtnNavigateBack from "../BtnNavigateBack"
 import ImageDisplay from '../ImageDisplay';
-import ImageList from '../ImageList';
 import Loader from '../Loader';
 import SidebarList from '../SidebarList';
 import TextContainer from '../TextContainer';
 import RepoList from './RepoList';
 import defTexts from "../../texts/defaultProjTexts";
 import LanguageContext from '../../context/LanguageContext';
+import GalleryList from '../GalleryList';
 
 export default function Project({match, location, history}) {
     const {id} = match.params;
@@ -37,6 +37,7 @@ export default function Project({match, location, history}) {
         setDisplayOpen(true);
     }
     const handleCloseImage = () => {
+        console.log("hi");
         setDisplayUrl(null);
         setDisplayOpen(false);
     }
@@ -59,7 +60,7 @@ export default function Project({match, location, history}) {
                 </div>
                 {tech && <SidebarList title={defTexts[language].used_tech} cls="tech_list" items={tech}/>}
             </div>
-            <ImageList images={images} onClick={handleOpenImage}/>
+            <GalleryList images={images} onImageClick={handleOpenImage}/>
             <ImageDisplay imageUrl={displayUrl} visible={displayOpen} onClose={handleCloseImage}/>
         </div>
     )
