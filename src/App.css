@@ -275,16 +275,20 @@ a {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   margin-top: 1vh;
+  grid-template-areas: 
+  "me-image about technology";
 }
 .about_container img {
   width: 80%;
   justify-self: center;
   align-self: center;
+  grid-area: me-image;
 }
 .about_text_wrapper {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  grid-area: about;
 }
 .about_text_container {
   margin: .5rem 0 !important;
@@ -298,6 +302,7 @@ a {
   flex-flow: column nowrap;
   align-items: center;
   color: white;
+  grid-area: technology
 }
 .skills_container h2, .about_text_wrapper h1 {
   border: none;
@@ -448,7 +453,22 @@ a {
     width: fit-content;
     padding: 1rem 0.5rem;
   }
+  .about_container {
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 
+    "about technology"
+    "me-image technology"
+  }
+  .about_container img {
+    margin-top: -5rem;
+  }
 }
+@container content (max-width: 650px) {
+  .about_container img {
+    margin-top: 0px;
+  }
+}
+
 @container content (max-width: 500px) {
   .list_container {
     width: 100%
@@ -485,5 +505,25 @@ a {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+  .about_container {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "about"
+    "technology"
+    "me-image"
+  }
+  .about_container .sidebar_lists_wrapper {
+    flex-flow: row nowrap;
+    display: flex;
+  }
+  .skills_container {
+    width: 55%;
+  }
+  .about_container .text_container {
+    width: 90%
+  }
+  .about_container img {
+    display: none;
   }
 }
