@@ -54,6 +54,7 @@ a {
   flex-flow: column nowrap;
   align-items: center;
   color: white;
+  grid-area: sidebar-list;
 }
 .sidebar_list h2 {
   border: none;
@@ -71,7 +72,7 @@ a {
   color: grey;
   position: absolute;
   left: 0;
-  top: 60px;
+  top: 0;
   width: 60px;
   height: 30px;
   display: flex;
@@ -210,7 +211,6 @@ a {
   justify-self: center;
   padding: 0.3rem 0;
   background-color: #414C55;
-  pointer-events: none;
 }
 .project_preview_container a {
   color: whitesmoke;
@@ -236,13 +236,9 @@ a {
   justify-self: center;
   width: 90%;
   height: 50%;
-  display: grid;
-  grid-template-rows: 1fr 2fr 1fr;
-  grid-template-columns: 1fr;
-  justify-items: center;
 }
 .project_text_box a {
-  grid-area: "link";
+  grid-area: link;
   align-self: center;
   transition: .25s ease-in-out;
   color: #d3d3d3;
@@ -373,6 +369,7 @@ a {
   display: flex;
   flex-flow: column nowrap;
   text-align: center;
+  grid-area: repo-list;
 }
 /* image fullscreen display */
 .opacity_box {
@@ -394,11 +391,14 @@ a {
   grid-template-columns: 1fr 5fr 1fr;
   align-items: center;
   width: 100%;
+  grid-template-areas: 
+  "repo-list project-text sidebar-list";
 }
 .project_text_wrapper {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  grid-area: project-text;
 }
 .project_text_wrapper p {
   font-size: 1.2em;
@@ -408,6 +408,12 @@ a {
 }
 .repo_list a {
   text-decoration: underline;
+}
+.grid-wrapper, .flex-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
 }
 @media only screen and (max-width:1440px) {
   .project_about_text {
@@ -461,6 +467,12 @@ a {
   }
   .about_container img {
     margin-top: -5rem;
+  }
+  .project_about_text {
+    margin-top: 50px
+  }
+  .listed_img {
+    pointer-events: none;
   }
 }
 @container content (max-width: 650px) {
@@ -525,5 +537,30 @@ a {
   }
   .about_container img {
     display: none;
+  }
+  .project_about_text {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "repo-list"
+    "project-text"
+    "sidebar-list";
+    justify-items: center;
+    margin-top: 10px
+  }
+  .repo_list {
+    justify-self: center;
+  }
+  .tech_list {
+    justify-self: center;
+  }
+  .project_text_wrapper h1 {
+    font-size: 24px
+  }
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .gallery_list {
+    display: none
   }
 }

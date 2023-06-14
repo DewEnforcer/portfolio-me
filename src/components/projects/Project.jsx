@@ -58,7 +58,7 @@ export default function Project({match, location, history}) {
                     <h1>{title}</h1>
                     {about[language].map((p,i) => <TextContainer key={i} text={p}/>)}
                 </div>
-                {tech && <SidebarList title={defTexts[language].used_tech} cls="tech_list" items={tech}/>}
+                {tech && <SidebarList useGrid={true} title={defTexts[language].used_tech} cls="tech_list" items={tech}/>}
             </div>
             <GalleryList images={images} onImageClick={handleOpenImage}/>
             <ImageDisplay imageUrl={displayUrl} visible={displayOpen} onClose={handleCloseImage}/>

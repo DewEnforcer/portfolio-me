@@ -28,7 +28,7 @@ export default function About() {
                 <TextContainer cls="about_text_container" text={about.text[language]} hasBg={false}/>
             </div>
             <div className='sidebar_lists_wrapper'>
-                 <SidebarList title={about.skillsLabel[language]} cls="skills_container" items={about.skills}/>
+                 <SidebarList title={about.skillsLabel[language]} cls="skills_container" items={about.skills} useGrid={true}/>
                  <SidebarList title={about.contactsLabel[language]} cls="contacts_container" items={about.contacts}/>
             </div>
         </div>
