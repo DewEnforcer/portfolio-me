@@ -26,7 +26,8 @@ export default function Home() {
     return (
         <div className="home_container">
             {homeData[language].text.map((t, i) => <h1 key={i}>{parse(t)}</h1>)}
-            <AppLink label={homeData[language].btnLabel} to="/projects"/>
+            <h1 style={{fontSize: "36px", textDecoration: "underline"}}>{homeData[language].warning}</h1>
+            <a href='https://patrikmedek.vercel.app/'>{homeData[language].btnLabel}</a>
         </div>
     )
 }
